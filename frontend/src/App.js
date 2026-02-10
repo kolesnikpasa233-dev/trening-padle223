@@ -14,7 +14,7 @@ const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const IMAGES = {
   hero: 'https://images.unsplash.com/photo-1644739134858-b0fc32036267?crop=entropy&cs=srgb&fm=jpg&q=85',
   atmosphere1: 'https://customer-assets.emergentagent.com/job_paddel-sport/artifacts/0exa278k_photo_2026-02-10%2015.43.15.jpeg',
-  atmosphere2: 'https://images.unsplash.com/photo-1660214332007-d0f2612f0632?crop=entropy&cs=srgb&fm=jpg&q=85'
+  atmosphere2: 'https://customer-assets.emergentagent.com/job_paddel-sport/artifacts/f3ymcx12_photo_2026-02-10%2015.43.21.jpeg'
 };
 
 // Navigation
