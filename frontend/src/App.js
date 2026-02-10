@@ -4,17 +4,17 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
 import { BookingModal } from '@/components/BookingModal';
 import axios from 'axios';
-import { 
+import {
   Menu, X, MapPin, Phone, Send, MessageCircle,
-  Users, Clock, Target, ChevronRight, Star, ArrowRight
-} from 'lucide-react';
+  Users, Clock, Target, ChevronRight, Star, ArrowRight } from
+'lucide-react';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const IMAGES = {
   hero: 'https://images.unsplash.com/photo-1644739134858-b0fc32036267?crop=entropy&cs=srgb&fm=jpg&q=85',
   atmosphere1: 'https://images.unsplash.com/photo-1758275557473-6e6359ced762?crop=entropy&cs=srgb&fm=jpg&q=85',
-  atmosphere2: 'https://images.unsplash.com/photo-1660214332007-d0f2612f0632?crop=entropy&cs=srgb&fm=jpg&q=85',
+  atmosphere2: 'https://images.unsplash.com/photo-1660214332007-d0f2612f0632?crop=entropy&cs=srgb&fm=jpg&q=85'
 };
 
 // Navigation
@@ -34,12 +34,12 @@ const Navigation = ({ onBookClick }) => {
   };
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'nav-scrolled py-3' : 'bg-transparent py-5'
-      }`}
-      data-testid="navigation"
-    >
+      isScrolled ? 'nav-scrolled py-3' : 'bg-transparent py-5'}`
+      }
+      data-testid="navigation">
+
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3" data-testid="logo">
           <div className="w-10 h-10 bg-[#FF007F] flex items-center justify-center">
@@ -52,20 +52,20 @@ const Navigation = ({ onBookClick }) => {
 
         <div className="hidden md:flex items-center gap-8">
           {[
-            { id: 'why', label: 'Почему падл' },
-            { id: 'formats', label: 'Форматы' },
-            { id: 'prices', label: 'Цены' },
-            { id: 'contacts', label: 'Контакты' },
-          ].map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className="text-white/70 hover:text-white font-medium text-sm uppercase tracking-wider transition-colors duration-300"
-              data-testid={`nav-${item.id}`}
-            >
+          { id: 'why', label: 'Почему падл' },
+          { id: 'formats', label: 'Форматы' },
+          { id: 'prices', label: 'Цены' },
+          { id: 'contacts', label: 'Контакты' }].
+          map((item) =>
+          <button
+            key={item.id}
+            onClick={() => scrollToSection(item.id)}
+            className="text-white/70 hover:text-white font-medium text-sm uppercase tracking-wider transition-colors duration-300"
+            data-testid={`nav-${item.id}`}>
+
               {item.label}
             </button>
-          ))}
+          )}
           <button onClick={onBookClick} className="btn-primary" data-testid="nav-book-btn">
             Записаться
           </button>
@@ -74,40 +74,40 @@ const Navigation = ({ onBookClick }) => {
         <button
           className="md:hidden p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          data-testid="mobile-menu-btn"
-        >
+          data-testid="mobile-menu-btn">
+
           {isMobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
         </button>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="md:hidden glass-dark absolute top-full left-0 right-0 p-4 border-t border-white/10">
+      {isMobileMenuOpen &&
+      <div className="md:hidden glass-dark absolute top-full left-0 right-0 p-4 border-t border-white/10">
           {[
-            { id: 'why', label: 'Почему падл' },
-            { id: 'formats', label: 'Форматы' },
-            { id: 'prices', label: 'Цены' },
-            { id: 'contacts', label: 'Контакты' },
-          ].map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className="block w-full text-left py-3 text-white font-heading uppercase tracking-wide"
-            >
+        { id: 'why', label: 'Почему падл' },
+        { id: 'formats', label: 'Форматы' },
+        { id: 'prices', label: 'Цены' },
+        { id: 'contacts', label: 'Контакты' }].
+        map((item) =>
+        <button
+          key={item.id}
+          onClick={() => scrollToSection(item.id)}
+          className="block w-full text-left py-3 text-white font-heading uppercase tracking-wide">
+
               {item.label}
             </button>
-          ))}
-          <button onClick={() => { onBookClick(); setIsMobileMenuOpen(false); }} className="btn-primary w-full mt-4">
+        )}
+          <button onClick={() => {onBookClick();setIsMobileMenuOpen(false);}} className="btn-primary w-full mt-4">
             Записаться
           </button>
         </div>
-      )}
-    </nav>
-  );
+      }
+    </nav>);
+
 };
 
 // Hero Section - Dark theme
-const HeroSection = ({ onBookClick }) => (
-  <section className="hero-section" data-testid="hero-section">
+const HeroSection = ({ onBookClick }) =>
+<section className="hero-section" data-testid="hero-section">
     <div className="hero-bg" style={{ backgroundImage: `url(${IMAGES.hero})` }} />
     <div className="hero-overlay" />
     
@@ -120,11 +120,11 @@ const HeroSection = ({ onBookClick }) => (
           </p>
           
           {/* Главный заголовок */}
-          <h1 className="text-white font-heading font-black text-5xl md:text-7xl lg:text-8xl uppercase leading-[0.9] mb-8 animate-fade-in-up delay-100">
-            Самый доступный<br />
-            и азартный спорт<br />
-            <span className="text-[#FF007F]">для взрослых</span>
-          </h1>
+          <h1 className="font-heading font-black md:text-7xl lg:text-8xl uppercase animate-fade-in-up delay-100 text-5xl leading-[0.9] mb-8 text-white">Самый women падл в России
+          <br />
+          <br />
+          <span className="text-[#FF007F]">для the best</span>
+        </h1>
           
           {/* Инфо-плашки */}
           <div className="flex flex-wrap gap-3 mb-8 animate-fade-in-up delay-200">
@@ -143,10 +143,10 @@ const HeroSection = ({ onBookClick }) => (
           </div>
           
           {/* Подзаголовок */}
-          <p className="text-white/60 font-body text-lg md:text-xl mb-10 max-w-lg animate-fade-in-up delay-300">
-            Играй в падл без опыта и без партнёра.<br />
-            Мы подберём уровень, формат и компанию.
-          </p>
+          <p className="text-white/60 font-body text-lg md:text-xl mb-10 max-w-lg animate-fade-in-up delay-300">Играй в падл без опыта и партнёра.
+          <br />Мы подберём уровень, формат и компанию.
+
+        </p>
           
           {/* CTA */}
           <div className="animate-fade-in-up delay-400">
@@ -157,25 +157,25 @@ const HeroSection = ({ onBookClick }) => (
         </div>
       </div>
     </div>
-  </section>
-);
+  </section>;
+
 
 // Why Padel Section - Pink cards
 const WhyPadelSection = ({ onTryClick }) => {
   const reasons = [
-    {
-      title: 'Если ты хочешь активно проводить время',
-      subtitle: 'без изнурительных тренировок'
-    },
-    {
-      title: 'Если тебе важно общение, драйв и азарт,',
-      subtitle: 'а не просто спортзал'
-    },
-    {
-      title: 'Если ты хочешь попробовать новый трендовый спорт,',
-      subtitle: 'в который легко втянуться'
-    },
-  ];
+  {
+    title: 'Если ты хочешь активно проводить время',
+    subtitle: 'без изнурительных тренировок'
+  },
+  {
+    title: 'Если тебе важно общение, драйв и азарт,',
+    subtitle: 'а не просто спортзал'
+  },
+  {
+    title: 'Если ты хочешь попробовать новый трендовый спорт,',
+    subtitle: 'в который легко втянуться'
+  }];
+
 
   return (
     <section id="why" className="section-dark py-24 md:py-32" data-testid="why-section">
@@ -190,12 +190,12 @@ const WhyPadelSection = ({ onTryClick }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {reasons.map((reason, index) => (
-            <div 
-              key={index}
-              className="pink-card"
-              data-testid={`why-card-${index}`}
-            >
+          {reasons.map((reason, index) =>
+          <div
+            key={index}
+            className="pink-card"
+            data-testid={`why-card-${index}`}>
+
               <p className="font-heading font-bold text-xl md:text-2xl uppercase leading-tight mb-2">
                 {reason.title}
               </p>
@@ -203,7 +203,7 @@ const WhyPadelSection = ({ onTryClick }) => {
                 {reason.subtitle}
               </p>
             </div>
-          ))}
+          )}
         </div>
 
         <div className="text-center">
@@ -212,30 +212,30 @@ const WhyPadelSection = ({ onTryClick }) => {
           </button>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 // For Who Section - Dark bg, light cards
 const ForWhoSection = ({ onBookClick }) => {
   const personas = [
-    { 
-      title: 'Новички', 
-      desc: 'Никогда не играли — объясним правила и подберём комфортную игру'
-    },
-    { 
-      title: 'Активные игроки', 
-      desc: 'Регулярные игры, рост уровня и новые соперники'
-    },
-    { 
-      title: 'Друзья и компании', 
-      desc: 'Идеальный формат для вечера или выходных'
-    },
-    { 
-      title: 'Корпоративы', 
-      desc: 'Командный спорт + эмоции + нетворкинг'
-    },
-  ];
+  {
+    title: 'Новички',
+    desc: 'Никогда не играли — объясним правила и подберём комфортную игру'
+  },
+  {
+    title: 'Активные игроки',
+    desc: 'Регулярные игры, рост уровня и новые соперники'
+  },
+  {
+    title: 'Друзья и компании',
+    desc: 'Идеальный формат для вечера или выходных'
+  },
+  {
+    title: 'Корпоративы',
+    desc: 'Командный спорт + эмоции + нетворкинг'
+  }];
+
 
   return (
     <section className="section-darker py-24 md:py-32" data-testid="for-who-section">
@@ -250,13 +250,13 @@ const ForWhoSection = ({ onBookClick }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {personas.map((persona, index) => (
-            <div 
-              key={index}
-              className="light-card cursor-pointer group"
-              onClick={onBookClick}
-              data-testid={`persona-card-${index}`}
-            >
+          {personas.map((persona, index) =>
+          <div
+            key={index}
+            className="light-card cursor-pointer group"
+            onClick={onBookClick}
+            data-testid={`persona-card-${index}`}>
+
               <h3 className="font-heading font-bold text-2xl uppercase mb-4 text-[#0A0A0A]">
                 {persona.title}
               </h3>
@@ -268,21 +268,21 @@ const ForWhoSection = ({ onBookClick }) => {
                 <ArrowRight className="w-4 h-4" />
               </div>
             </div>
-          ))}
+          )}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 // Process Section
 const ProcessSection = () => {
   const steps = [
-    { num: '01', title: 'Выбираешь формат игры' },
-    { num: '02', title: 'Мы подбираем уровень и участников' },
-    { num: '03', title: 'Приходишь — ракетки и мячи уже ждут' },
-    { num: '04', title: 'Играешь, отдыхаешь, знакомишься' },
-  ];
+  { num: '01', title: 'Выбираешь формат игры' },
+  { num: '02', title: 'Мы подбираем уровень и участников' },
+  { num: '03', title: 'Приходишь — ракетки и мячи уже ждут' },
+  { num: '04', title: 'Играешь, отдыхаешь, знакомишься' }];
+
 
   return (
     <section className="section-dark py-24 md:py-32" data-testid="process-section">
@@ -297,33 +297,33 @@ const ProcessSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, index) => (
-            <div 
-              key={index}
-              className="dark-card"
-              data-testid={`process-step-${index}`}
-            >
+          {steps.map((step, index) =>
+          <div
+            key={index}
+            className="dark-card"
+            data-testid={`process-step-${index}`}>
+
               <div className="step-number mb-6">{step.num}</div>
               <p className="font-heading font-bold text-xl uppercase text-white">
                 {step.title}
               </p>
             </div>
-          ))}
+          )}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 // Formats Section
 const FormatsSection = ({ onFormatSelect }) => {
   const formats = [
-    { id: 'open_game', title: 'Открытые игры', desc: 'Можно прийти одному — мы найдём партнёров' },
-    { id: 'training', title: 'Тренировки с тренером', desc: 'Персональные занятия для роста уровня' },
-    { id: 'subscription', title: 'Абонементы', desc: 'Регулярные игры со скидкой до 30%' },
-    { id: 'tournament', title: 'Турниры', desc: 'Соревнуйся и выигрывай призы' },
-    { id: 'corporate', title: 'Корпоративные игры', desc: 'Тимбилдинг для вашей команды' },
-  ];
+  { id: 'open_game', title: 'Открытые игры', desc: 'Можно прийти одному — мы найдём партнёров' },
+  { id: 'training', title: 'Тренировки с тренером', desc: 'Персональные занятия для роста уровня' },
+  { id: 'subscription', title: 'Абонементы', desc: 'Регулярные игры со скидкой до 30%' },
+  { id: 'tournament', title: 'Турниры', desc: 'Соревнуйся и выигрывай призы' },
+  { id: 'corporate', title: 'Корпоративные игры', desc: 'Тимбилдинг для вашей команды' }];
+
 
   return (
     <section id="formats" className="section-darker py-24 md:py-32" data-testid="formats-section">
@@ -338,58 +338,58 @@ const FormatsSection = ({ onFormatSelect }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {formats.map((format) => (
-            <div 
-              key={format.id}
-              className="format-card group"
-              data-testid={`format-card-${format.id}`}
-            >
+          {formats.map((format) =>
+          <div
+            key={format.id}
+            className="format-card group"
+            data-testid={`format-card-${format.id}`}>
+
               <h3 className="font-heading font-bold text-xl uppercase text-white mb-3 group-hover:text-[#FF007F] transition-colors duration-300">
                 {format.title}
               </h3>
               <p className="text-white/60 font-body mb-6">
                 {format.desc}
               </p>
-              <button 
-                onClick={() => onFormatSelect(format.id)}
-                className="flex items-center gap-2 text-[#FF007F] font-heading uppercase text-sm hover:gap-4 transition-all duration-300"
-                data-testid={`format-book-${format.id}`}
-              >
+              <button
+              onClick={() => onFormatSelect(format.id)}
+              className="flex items-center gap-2 text-[#FF007F] font-heading uppercase text-sm hover:gap-4 transition-all duration-300"
+              data-testid={`format-book-${format.id}`}>
+
                 Записаться <ChevronRight className="w-4 h-4" />
               </button>
             </div>
-          ))}
+          )}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 // Pricing Section
 const PricingSection = ({ onBookClick }) => {
   const plans = [
-    { 
-      title: 'Разовая игра', 
-      price: '4 000', 
-      unit: '₽',
-      desc: '1.5 часа на корте',
-      featured: false
-    },
-    { 
-      title: 'Тренировка', 
-      price: '6 000', 
-      unit: '₽',
-      desc: 'С персональным тренером',
-      featured: true
-    },
-    { 
-      title: 'Абонемент', 
-      price: '−30', 
-      unit: '%',
-      desc: 'Скидка на 4+ игры',
-      featured: false
-    },
-  ];
+  {
+    title: 'Разовая игра',
+    price: '4 000',
+    unit: '₽',
+    desc: '1.5 часа на корте',
+    featured: false
+  },
+  {
+    title: 'Тренировка',
+    price: '6 000',
+    unit: '₽',
+    desc: 'С персональным тренером',
+    featured: true
+  },
+  {
+    title: 'Абонемент',
+    price: '−30',
+    unit: '%',
+    desc: 'Скидка на 4+ игры',
+    featured: false
+  }];
+
 
   return (
     <section id="prices" className="section-dark py-24 md:py-32" data-testid="pricing-section">
@@ -404,26 +404,26 @@ const PricingSection = ({ onBookClick }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {plans.map((plan, index) => (
-            <div 
-              key={index}
-              className={`pricing-card ${plan.featured ? 'featured' : ''}`}
-              data-testid={`pricing-plan-${index}`}
-            >
+          {plans.map((plan, index) =>
+          <div
+            key={index}
+            className={`pricing-card ${plan.featured ? 'featured' : ''}`}
+            data-testid={`pricing-plan-${index}`}>
+
               <p className={`font-heading font-bold text-sm uppercase tracking-wider mb-4 ${
-                plan.featured ? 'text-white/80' : 'text-white/50'
-              }`}>
+            plan.featured ? 'text-white/80' : 'text-white/50'}`
+            }>
                 {plan.title}
               </p>
               <div className="mb-4">
                 <span className={`font-heading font-black text-6xl md:text-7xl ${
-                  plan.featured ? 'text-white' : 'text-[#FF007F]'
-                }`}>
+              plan.featured ? 'text-white' : 'text-[#FF007F]'}`
+              }>
                   {plan.price}
                 </span>
                 <span className={`font-heading font-bold text-2xl ${
-                  plan.featured ? 'text-white/80' : 'text-white/60'
-                }`}>
+              plan.featured ? 'text-white/80' : 'text-white/60'}`
+              }>
                   {plan.unit}
                 </span>
               </div>
@@ -431,7 +431,7 @@ const PricingSection = ({ onBookClick }) => {
                 {plan.desc}
               </p>
             </div>
-          ))}
+          )}
         </div>
 
         <div className="text-center">
@@ -440,13 +440,13 @@ const PricingSection = ({ onBookClick }) => {
           </button>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 // Atmosphere Section
-const AtmosphereSection = () => (
-  <section className="section-darker py-24 md:py-32" data-testid="atmosphere-section">
+const AtmosphereSection = () =>
+<section className="section-darker py-24 md:py-32" data-testid="atmosphere-section">
     <div className="max-w-7xl mx-auto px-4 md:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
@@ -461,23 +461,23 @@ const AtmosphereSection = () => (
             и лучший способ перезагрузиться после работы.
           </p>
           <div className="flex items-center gap-6">
-            <a 
-              href="https://wa.me/79991234567"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white/60 hover:text-[#FF007F] transition-colors duration-300"
-              data-testid="whatsapp-link"
-            >
+            <a
+            href="https://wa.me/79991234567"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-white/60 hover:text-[#FF007F] transition-colors duration-300"
+            data-testid="whatsapp-link">
+
               <MessageCircle className="w-5 h-5" />
               <span className="font-heading uppercase text-sm">WhatsApp</span>
             </a>
-            <a 
-              href="https://t.me/padelmoscow"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white/60 hover:text-[#FF007F] transition-colors duration-300"
-              data-testid="telegram-link"
-            >
+            <a
+            href="https://t.me/padelmoscow"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-white/60 hover:text-[#FF007F] transition-colors duration-300"
+            data-testid="telegram-link">
+
               <Send className="w-5 h-5" />
               <span className="font-heading uppercase text-sm">Telegram</span>
             </a>
@@ -485,28 +485,28 @@ const AtmosphereSection = () => (
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <img 
-            src={IMAGES.atmosphere1}
-            alt="Padel atmosphere"
-            className="w-full h-64 object-cover"
-          />
-          <img 
-            src={IMAGES.atmosphere2}
-            alt="Padel fun"
-            className="w-full h-64 object-cover mt-8"
-          />
+          <img
+          src={IMAGES.atmosphere1}
+          alt="Padel atmosphere"
+          className="w-full h-64 object-cover" />
+
+          <img
+          src={IMAGES.atmosphere2}
+          alt="Padel fun"
+          className="w-full h-64 object-cover mt-8" />
+
         </div>
       </div>
     </div>
-  </section>
-);
+  </section>;
+
 
 // Stats Section
 const StatsSection = () => {
   const [stats, setStats] = useState({ players: 0, games_per_month: 0, rating: 0 });
 
   useEffect(() => {
-    axios.get(`${API}/stats`).then(res => setStats(res.data)).catch(console.error);
+    axios.get(`${API}/stats`).then((res) => setStats(res.data)).catch(console.error);
   }, []);
 
   return (
@@ -530,13 +530,13 @@ const StatsSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 // CTA Section
-const CTASection = ({ onBookClick }) => (
-  <section className="section-pink py-24 md:py-32" data-testid="cta-section">
+const CTASection = ({ onBookClick }) =>
+<section className="section-pink py-24 md:py-32" data-testid="cta-section">
     <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
       <h2 className="font-heading font-black text-4xl md:text-6xl lg:text-7xl uppercase text-white mb-6 leading-tight">
         Попробуй падл уже<br />на этой неделе
@@ -544,20 +544,20 @@ const CTASection = ({ onBookClick }) => (
       <p className="text-white/80 font-body text-xl mb-10 max-w-xl mx-auto">
         Мы подберём формат и уровень под тебя
       </p>
-      <button 
-        onClick={onBookClick}
-        className="bg-white text-[#FF007F] px-12 py-5 font-heading font-bold text-xl uppercase tracking-wider hover:bg-[#0A0A0A] hover:text-white transition-colors duration-300"
-        data-testid="cta-book-btn"
-      >
+      <button
+      onClick={onBookClick}
+      className="bg-white text-[#FF007F] px-12 py-5 font-heading font-bold text-xl uppercase tracking-wider hover:bg-[#0A0A0A] hover:text-white transition-colors duration-300"
+      data-testid="cta-book-btn">
+
         Записаться на игру
       </button>
     </div>
-  </section>
-);
+  </section>;
+
 
 // Footer
-const Footer = ({ onAskClick }) => (
-  <footer id="contacts" className="section-darker py-16 md:py-20 border-t border-white/10" data-testid="footer">
+const Footer = ({ onAskClick }) =>
+<footer id="contacts" className="section-darker py-16 md:py-20 border-t border-white/10" data-testid="footer">
     <div className="max-w-7xl mx-auto px-4 md:px-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
         <div className="md:col-span-2">
@@ -573,22 +573,22 @@ const Footer = ({ onAskClick }) => (
             Падл центр в Москве. Самый доступный и азартный спорт для взрослых.
           </p>
           <div className="flex items-center gap-4">
-            <a 
-              href="https://wa.me/79991234567"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-[#FF007F] transition-colors duration-300"
-              data-testid="footer-whatsapp"
-            >
+            <a
+            href="https://wa.me/79991234567"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-[#FF007F] transition-colors duration-300"
+            data-testid="footer-whatsapp">
+
               <MessageCircle className="w-5 h-5 text-white" />
             </a>
-            <a 
-              href="https://t.me/padelmoscow"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-[#FF007F] transition-colors duration-300"
-              data-testid="footer-telegram"
-            >
+            <a
+            href="https://t.me/padelmoscow"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-[#FF007F] transition-colors duration-300"
+            data-testid="footer-telegram">
+
               <Send className="w-5 h-5 text-white" />
             </a>
           </div>
@@ -622,11 +622,11 @@ const Footer = ({ onAskClick }) => (
             <li>Пн-Пт: 09:00 – 22:00</li>
             <li>Сб-Вс: 10:00 – 21:00</li>
           </ul>
-          <button 
-            onClick={onAskClick}
-            className="mt-6 text-[#FF007F] font-heading uppercase text-sm hover:underline"
-            data-testid="footer-ask-btn"
-          >
+          <button
+          onClick={onAskClick}
+          className="mt-6 text-[#FF007F] font-heading uppercase text-sm hover:underline"
+          data-testid="footer-ask-btn">
+
             Задать вопрос →
           </button>
         </div>
@@ -638,8 +638,8 @@ const Footer = ({ onAskClick }) => (
         </p>
       </div>
     </div>
-  </footer>
-);
+  </footer>;
+
 
 // Main Home Component
 const Home = () => {
@@ -675,15 +675,15 @@ const Home = () => {
       <CTASection onBookClick={handleBookClick} />
       <Footer onAskClick={handleBookClick} />
       
-      <BookingModal 
-        isOpen={isBookingOpen} 
+      <BookingModal
+        isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
-        initialFormat={selectedFormat}
-      />
+        initialFormat={selectedFormat} />
+
       
       <Toaster position="top-center" richColors />
-    </div>
-  );
+    </div>);
+
 };
 
 function App() {
@@ -692,8 +692,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-    </BrowserRouter>
-  );
+    </BrowserRouter>);
+
 }
 
 export default App;
