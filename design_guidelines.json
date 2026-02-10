@@ -1,0 +1,132 @@
+{
+  "design_system": {
+    "typography": {
+      "font_family": {
+        "heading": "Barlow Condensed, sans-serif",
+        "body": "Manrope, sans-serif",
+        "accent": "Teko, sans-serif"
+      },
+      "scale": {
+        "h1": "text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none",
+        "h2": "text-4xl md:text-6xl font-bold uppercase tracking-tight",
+        "h3": "text-2xl md:text-3xl font-bold uppercase tracking-wide",
+        "body": "text-base md:text-lg font-medium leading-relaxed",
+        "caption": "text-sm font-bold uppercase tracking-widest text-muted-foreground"
+      }
+    },
+    "colors": {
+      "palette": {
+        "primary": "#FF007F",
+        "primary_hover": "#D6006A",
+        "secondary": "#1A1A1A",
+        "background": "#FFFFFF",
+        "surface": "#F4F4F5",
+        "surface_highlight": "#FFE5F0",
+        "text_main": "#09090B",
+        "text_muted": "#71717A",
+        "border": "#E4E4E7"
+      },
+      "usage": {
+        "hero_cta": "bg-[#FF007F] hover:bg-[#D6006A] text-white",
+        "accent_text": "text-[#FF007F]",
+        "dark_section_bg": "bg-[#1A1A1A] text-white"
+      }
+    },
+    "visual_enhancers": {
+      "radius": "rounded-md",
+      "shadows": {
+        "card": "shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)]",
+        "hover": "shadow-[0_8px_30px_-4px_rgba(255,0,127,0.2)]"
+      },
+      "gradients": {
+        "hero_overlay": "bg-gradient-to-t from-black/80 via-black/20 to-transparent",
+        "pink_glow": "bg-gradient-to-r from-[#FF007F] to-[#FF5CA8]"
+      },
+      "borders": "border border-border hover:border-[#FF007F]/50 transition-colors duration-300"
+    },
+    "layout": {
+      "container": "max-w-7xl mx-auto px-4 md:px-8",
+      "section_spacing": "py-20 md:py-32",
+      "grid_gap": "gap-6 md:gap-12"
+    }
+  },
+  "components": {
+    "Hero": {
+      "description": "Full-screen immersive hero with action shot. Bold typography. Primary CTA 'Book Now'.",
+      "structure": "Relative container, absolute image bg, overlay gradient, bottom-left aligned text content.",
+      "image_url": "https://images.unsplash.com/photo-1644739134858-b0fc32036267?crop=entropy&cs=srgb&fm=jpg&q=85"
+    },
+    "Benefits": {
+      "description": "Bento grid layout highlighting 'Easy to learn', 'Social', 'Fit'.",
+      "structure": "Grid cols-1 md:cols-3. Mix of icon-only cards and image cards.",
+      "images": [
+        "https://images.unsplash.com/photo-1612534847738-b3af9bc31f0c?crop=entropy&cs=srgb&fm=jpg&q=85"
+      ]
+    },
+    "Personas": {
+      "description": "Horizontal scroll or grid of target audiences (Newbie, Pro, Corporate).",
+      "structure": "Cards with large typography labels and subtle hover zoom.",
+      "images": [
+        "https://images.unsplash.com/photo-1758275557473-6e6359ced762?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "https://images.unsplash.com/photo-1753351054861-413f98130391?crop=entropy&cs=srgb&fm=jpg&q=85"
+      ]
+    },
+    "Process": {
+      "description": "Vertical step-by-step guide 'How it works'.",
+      "structure": "Timeline style with numbered circles in Primary Pink."
+    },
+    "Pricing": {
+      "description": "3-column pricing table. Highlight 'Training' or 'Game'.",
+      "structure": "Clean cards, one with 'Most Popular' badge (Pink)."
+    },
+    "Atmosphere": {
+      "description": "Masonry gallery of vibes.",
+      "structure": "Mix of wide and tall images. Use 'Happy Friends' images here.",
+      "images": [
+        "https://images.unsplash.com/photo-1660214332007-d0f2612f0632?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "https://images.unsplash.com/photo-1713764054316-7b45081dcac8?crop=entropy&cs=srgb&fm=jpg&q=85"
+      ]
+    },
+    "BookingModal": {
+      "description": "Shadcn Dialog with Calendar and Time Slots.",
+      "structure": "Two-step process: Select Date -> Select Time -> Confirm."
+    }
+  },
+  "image_urls": {
+    "hero_bg": "https://images.unsplash.com/photo-1644739134858-b0fc32036267?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "social_vibe_1": "https://images.unsplash.com/photo-1758275557473-6e6359ced762?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "social_vibe_2": "https://images.unsplash.com/photo-1753351054861-413f98130391?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "equipment_detail": "https://images.unsplash.com/photo-1612534847738-b3af9bc31f0c?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "group_fun": "https://images.unsplash.com/photo-1660214332007-d0f2612f0632?crop=entropy&cs=srgb&fm=jpg&q=85"
+  },
+  "instructions_to_main_agent": [
+    "INSTALL FONTS: Add '@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Manrope:wght@400;600;800&family=Teko:wght@400;600&display=swap');' to index.css",
+    "THEME SETUP: Extend tailwind.config.js with the colors provided in design_system.colors.palette.",
+    "MOBILE FIRST: Ensure all grids start at grid-cols-1 and move to md:grid-cols-X.",
+    "INTERACTIVITY: Use 'framer-motion' for entrance animations (fade-up) on all sections.",
+    "TESTING: Add data-testid to all buttons (e.g., 'hero-book-btn', 'pricing-plan-1').",
+    "NO PLACEHOLDERS: Use the provided image URLs. If a specific image is missing, use a solid color block with the Primary Pink accent.",
+    "NAVIGATION: Sticky header with blur effect (backdrop-blur-md).",
+    "FOOTER: Dark theme footer (bg-[#1A1A1A]) for contrast."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy",
+    "Use glass-morphism effects with backdrop filters (12-24px blur)",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file. This disrupts the human natural reading flow of text",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯📚🎭🎬🎪🎉🎊🎁🎀🎂🍰🎈🎨🎰💰💵💳🏦💎🪙💸🤑📊📈📉💹🔢🏆🥇 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories (especially sponsor logos) = main agent will use placeholder text which is FORBIDDEN",
+    "Prioritize using pre-existing components from src/components/ui when applicable",
+    "Create new components that match the style and conventions of existing components when needed",
+    "Examine existing components to understand the project's component patterns before creating new ones",
+    "Components MUST use named exports (export const ComponentName = ...)",
+    "Pages MUST use default exports (export default function PageName() {...})",
+    "Use sonner for toasts. Sonner component are located in /app/src/components/ui/sonner.tsx"
+  ]
+}
