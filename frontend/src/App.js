@@ -462,7 +462,7 @@ const AtmosphereSection = () =>
           </p>
           <div className="flex items-center gap-6">
             <a
-            href="https://wa.me/79991234567"
+            href="https://wa.me/79957910422"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-white/60 hover:text-[#FF007F] transition-colors duration-300"
@@ -574,7 +574,7 @@ const Footer = ({ onAskClick }) =>
           </p>
           <div className="flex items-center gap-4">
             <a
-            href="https://wa.me/79991234567"
+            href="https://wa.me/79957910422"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-[#FF007F] transition-colors duration-300"
