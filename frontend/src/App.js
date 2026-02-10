@@ -472,7 +472,7 @@ const AtmosphereSection = () =>
               <span className="font-heading uppercase text-sm">WhatsApp</span>
             </a>
             <a
-            href="https://t.me/padelmoscow"
+            href="https://t.me/pasha2375"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-white/60 hover:text-[#FF007F] transition-colors duration-300"
@@ -583,7 +583,7 @@ const Footer = ({ onAskClick }) =>
               <MessageCircle className="w-5 h-5 text-white" />
             </a>
             <a
-            href="https://t.me/padelmoscow"
+            href="https://t.me/pasha2375"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-[#FF007F] transition-colors duration-300"
